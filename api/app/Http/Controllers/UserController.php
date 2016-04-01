@@ -59,6 +59,8 @@ class UserController extends Controller
     //////////////////////////////////////
     //Установить виды спорта пользователя
     //////////////////////////////////////
+    //to-do: при обновлении видов спорта нужно полностью удалить связи
+    //и сформировать их заново на основе json объекта
     public function setUserSportTypes(Request $request, $userId)
     {
         $sports = $request->json()->all();
