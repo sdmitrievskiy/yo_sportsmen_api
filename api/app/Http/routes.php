@@ -28,3 +28,5 @@ $app->get('user/{id}/sporttypes', 'UserController@getUserSportTypes');
 //установить виды спорта для пользователя
 $app->post('user/{id}/sporttypes', 'UserController@setUserSportTypes');
 
+$app->put('user/{id}', 'UserController@updateUser');
+

@@ -59,14 +59,12 @@ class UserController extends Controller
     //////////////////////////////////////
     //Установить виды спорта пользователя
     //////////////////////////////////////
-    //to-do: при обновлении видов спорта нужно полностью удалить связи
-    //и сформировать их заново на основе json объекта
     public function setUserSportTypes(Request $request, $userId)
     {
         $sports = $request->json()->all();
         
         //удаляем текущие связи
-        DB::table('sport_types_to_users')->where('user_id', '=', $userId)->delete();
+        DB::table('sport_types_to_users')->where('user_id', $userId)->delete();
 
         //добавляем новые связи
         foreach($sports as $sport) {
@@ -76,5 +74,22 @@ class UserController extends Controller
             );
         }
 
+    }
+
+    //////////////////////////////////////
+    //Обновить данные пользователя
+    //////////////////////////////////////    
+    public function updateUser(Request $request, $userId)
+    {
+        $data = $request->json()->all();
+        //обновляем информацию
+        DB::table('users')->where('user_id', $userId)
+            ->update(['vk_id'          => $data['vk_id'], 
+                      'google_account' => $data['google_account'] 
+                     ]);
+        
+        //получаем пользователя и отправляем объект
+        $user = DB::table('users')->where('user_id', $userId)->first(); 
+        return response()->json($user);
     }
 }
