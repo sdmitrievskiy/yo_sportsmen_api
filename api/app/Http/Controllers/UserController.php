@@ -65,23 +65,15 @@ class UserController extends Controller
     {
         $sports = $request->json()->all();
         
+        //удаляем текущие связи
+        DB::table('sport_types_to_users')->where('user_id', '=', $userId)->delete();
+
+        //добавляем новые связи
         foreach($sports as $sport) {
-            
-            //получаем связь
-            $relation = DB::table('sport_types_to_users')
-                            ->where('sport_type_id',$sport['sport_type_id'])
-                            ->where('user_id',$userId)
-                            ->select('sport_type_id')
-                            ->first();
 
-            //если связи нет
-            if (!$relation) { 
-                //добавляем связь
-                DB::table('sport_types_to_users')->insert(
+            DB::table('sport_types_to_users')->insert(
                     ['user_id' => $userId, 'sport_type_id' => $sport['sport_type_id']]
-                );
-            }
-
+            );
         }
 
     }
