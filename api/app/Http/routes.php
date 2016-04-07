@@ -16,17 +16,37 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
+	////////////////////
+	//Общие методы
+	///////////////////
+
 //авторизация
 $app->post('/auth/vk','UserController@auth');
+
+	////////////////////
+	//Виды спорта
+	///////////////////
 
 //получение списка видов спорта
 $app->get('/sporttype/get', 'SportTypesController@getSportTypesList');
 
+	////////////////////
+	//Пользователь
+	///////////////////
+
 //получение видов спорта пользователя
-$app->get('user/{id}/sporttypes', 'UserController@getUserSportTypes');
+$app->get('/user/{id}/sporttypes', 'UserController@getUserSportTypes');
 
 //установить виды спорта для пользователя
-$app->post('user/{id}/sporttypes', 'UserController@setUserSportTypes');
+$app->post('/user/{id}/sporttypes', 'UserController@setUserSportTypes');
 
-$app->put('user/{id}', 'UserController@updateUser');
+//обновить информацию пользователя
+$app->put('/user/{id}', 'UserController@updateUser');
+
+	////////////////////
+	//Календарь
+	///////////////////
+
+//создать календарь
+$app->post('/calendar', 'CalendarController@addCalendar');
 
