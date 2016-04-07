@@ -31,7 +31,7 @@ class UserController extends Controller
         //если пользователь есть, отправляем о нем инфу
         if (!$user) {
             DB::table('users')->insert(
-                ['vk_id' => $vkId, 'date_joined' => date_create()->format('Y-m-d H:i:s')]
+                ['vk_id' => $vkId, 'date_joined' => date_create()->format('Y-m-d H:i:s'),'last_update' => date_create()->format('Y-m-d H:i:s')]
             );
             $user = DB::table('users')->where('vk_id', $vkId)->first();
             
@@ -85,7 +85,8 @@ class UserController extends Controller
         //обновляем информацию
         DB::table('users')->where('user_id', $userId)
             ->update(['vk_id'          => $data['vk_id'], 
-                      'google_account' => $data['google_account'] 
+                      'google_account' => $data['google_account'],
+                      'last_update' => date_create()->format('Y-m-d H:i:s') 
                      ]);
         
         //получаем пользователя и отправляем объект
