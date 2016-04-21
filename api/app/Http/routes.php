@@ -33,6 +33,9 @@ $app->get('/sporttype/get', 'SportTypesController@getSportTypesList');
 	////////////////////
 	//Пользователь
 	///////////////////
+//получить инфо для пользователя
+$app->get('user/{id}', 'UserController@getUser');
+
 //получение видов спорта пользователя
 $app->get('/user/{id}/sporttypes', 'UserController@getUserSportTypes');
 
