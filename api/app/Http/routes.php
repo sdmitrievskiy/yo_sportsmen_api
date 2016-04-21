@@ -33,7 +33,6 @@ $app->get('/sporttype/get', 'SportTypesController@getSportTypesList');
 	////////////////////
 	//Пользователь
 	///////////////////
-
 //получение видов спорта пользователя
 $app->get('/user/{id}/sporttypes', 'UserController@getUserSportTypes');
 
@@ -49,4 +48,16 @@ $app->put('/user/{id}', 'UserController@updateUser');
 
 //создать календарь
 $app->post('/calendar', 'CalendarController@addCalendar');
+
+//создать событие календаря
+$app->post('/calendars/{id}/events', 'CalendarController@createEvent');
+
+//получить событие
+$app->get('/calendars/{calendar}/events/{event}', 'CalendarController@getEvent');
+
+//получить событие календаря
+$app->get('/calendars/{calendar}/events', 'CalendarController@getCalendarEvents');
+
+//обновить событие календаря
+$app->put('/calendars/{calendar}/events/{event}', 'CalendarController@updateEvent');
 

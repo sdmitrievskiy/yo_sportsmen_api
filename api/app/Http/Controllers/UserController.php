@@ -50,7 +50,7 @@ class UserController extends Controller
             ->where('users.user_id',$userId)
             ->join('sport_types_to_users', 'users.user_id', '=', 'sport_types_to_users.user_id')
             ->join('sport_types', 'sport_types_to_users.sport_type_id', '=', 'sport_types.sport_type_id')
-            ->select('sport_types.name')
+            ->select('sport_types.sport_type_name')
             ->get();
 
         return response()->json($sports);
@@ -83,7 +83,7 @@ class UserController extends Controller
     {
         $data = $request->json()->all();
         //обновляем vk_id
-        if ( $data['vk_id'] ) {
+        if ( isset($data['vk_id']) ) {
             DB::table('users')->where('user_id', $userId)
                               ->update(['vk_id'       => $data['vk_id'],
                                          'last_update' => date_create()->format('Y-m-d H:i:s') 
@@ -91,7 +91,7 @@ class UserController extends Controller
         }
 
         //обновляем google_account
-        if ( $data['google_account'] ) {
+        if ( isset($data['google_account']) ) {
             DB::table('users')->where('user_id', $userId)
                               ->update(['google_account' => $data['google_account'],
                                         'last_update'    => date_create()->format('Y-m-d H:i:s') 
