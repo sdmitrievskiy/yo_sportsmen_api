@@ -17,9 +17,9 @@ class UserController extends Controller
         //
     }
 
-    /////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
     //аутентификация
-    /////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////
     public function auth(Request $request)
     {
         //получаем vkid от клиента
@@ -82,13 +82,22 @@ class UserController extends Controller
     public function updateUser(Request $request, $userId)
     {
         $data = $request->json()->all();
-        //обновляем информацию
-        DB::table('users')->where('user_id', $userId)
-            ->update(['vk_id'          => $data['vk_id'], 
-                      'google_account' => $data['google_account'],
-                      'last_update' => date_create()->format('Y-m-d H:i:s') 
-                     ]);
-        
+        //обновляем vk_id
+        if ( $data['vk_id'] ) {
+            DB::table('users')->where('user_id', $userId)
+                              ->update(['vk_id'       => $data['vk_id'],
+                                         'last_update' => date_create()->format('Y-m-d H:i:s') 
+                                ]);
+        }
+
+        //обновляем google_account
+        if ( $data['google_account'] ) {
+            DB::table('users')->where('user_id', $userId)
+                              ->update(['google_account' => $data['google_account'],
+                                        'last_update'    => date_create()->format('Y-m-d H:i:s') 
+                                ]);
+        }
+
         //получаем пользователя и отправляем объект
         $user = DB::table('users')->where('user_id', $userId)->first(); 
         return response()->json($user);
