@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6818ecbb-d8ca-4a96-bb26-d4d8cb6b36f9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/app/Http/Controllers/CalendarController.php" afterPath="$PROJECT_DIR$/api/app/Http/Controllers/CalendarController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/app/Http/routes.php" afterPath="$PROJECT_DIR$/api/app/Http/routes.php" />
-    </list>
+    <list default="true" id="6818ecbb-d8ca-4a96-bb26-d4d8cb6b36f9" name="Default" comment="" />
     <ignored path="che_sportsmen.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -172,12 +169,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1461790040150</updated>
-      <workItem from="1461790041377" duration="1601000" />
+      <workItem from="1461790041377" duration="1721000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1601000" />
+    <option name="totallyTimeSpent" value="1721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="982" extended-state="6" />

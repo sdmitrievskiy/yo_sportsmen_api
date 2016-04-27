@@ -51,9 +51,10 @@ $app->put('/user/{id}', 'UserController@updateUser');
 
 //создать календарь
 $app->post('/calendar', 'CalendarController@addCalendar');
-
 //получить календарь
-$app->get('calendars/{id}', 'CalendarController@getCalendar');
+$app->get('calendar/{id}', 'CalendarController@getCalendar');
+//обновить календарь
+$app->put('calendar/{id}', 'CalendarController@updateCalendar')
 //создать событие календаря
 $app->post('/calendars/{id}/events', 'CalendarController@createEvent');
 
