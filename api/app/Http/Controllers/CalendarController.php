@@ -42,7 +42,9 @@ class CalendarController extends Controller {
         DB::table('calendars')->where('calendar_id', $calendarId)
                               ->update(['googleApi'       => $data['googleApi']]);
 
-        return response()->json($calendar);
+
+
+        return $this->getCalendar($calendarId);
     }
 
     public function createEvent(Request $request, $calendarId)
