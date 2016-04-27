@@ -35,6 +35,16 @@ class CalendarController extends Controller {
         return response()->json($calendar);
     }
 
+    public function updateCalendar(Request $request, $calendarId)
+    {   
+        $data = $request->json()->all();
+
+        DB::table('calendars')->where('calendar_id', $calendarId)
+                              ->update(['googleApi'       => $data['googleApi']]);
+
+        return response()->json($calendar);
+    }
+
     public function createEvent(Request $request, $calendarId)
     {
         $data = $request->json()->all();
