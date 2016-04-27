@@ -21,7 +21,11 @@ class UserController extends Controller
     /////////////////////////////
     public function getUser($userId)
     {
-        $user = DB::table('users')->where('user_id', $userId)->first();
+        $user = DB::table('users')
+                    ->where('users.user_id', $userId)
+                    ->join('calendars', 'users.user_id', '=', 'calendars.user_id')
+                    ->select('users.*', 'calendars.calendar_id')
+                    ->first();
 
         //если пользователь есть, отправляем о нем инфу
         if ($user) return response()->json($user);
