@@ -64,7 +64,7 @@ class UserController extends Controller
             ->where('users.user_id',$userId)
             ->join('sport_types_to_users', 'users.user_id', '=', 'sport_types_to_users.user_id')
             ->join('sport_types', 'sport_types_to_users.sport_type_id', '=', 'sport_types.sport_type_id')
-            ->select('sport_types.sport_type_name')
+            ->select('sport_types.*')
             ->get();
 
         return response()->json($sports);
