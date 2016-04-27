@@ -27,6 +27,14 @@ class CalendarController extends Controller {
         return response()->json($calendar);
 	}
 
+    public function getCalendar($calendarId)
+    {
+
+        $calendar = DB::table('calendars')->where('calendar_id', $calendarId)->first();
+
+        return response()->json($calendar);
+    }
+
     public function createEvent(Request $request, $calendarId)
     {
         $data = $request->json()->all();

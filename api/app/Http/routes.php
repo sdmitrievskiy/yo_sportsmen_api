@@ -28,7 +28,7 @@ $app->post('/auth/vk','UserController@auth');
 	///////////////////
 
 //получение списка видов спорта
-$app->get('/sporttype/get', 'SportTypesController@getSportTypesList');
+$app->get('/sporttype/list', 'SportTypesController@getSportTypesList');
 
 	////////////////////
 	//Пользователь
@@ -52,6 +52,8 @@ $app->put('/user/{id}', 'UserController@updateUser');
 //создать календарь
 $app->post('/calendar', 'CalendarController@addCalendar');
 
+//получить календарь
+$app->get('calendars/{id}', 'CalendarController@getCalendar');
 //создать событие календаря
 $app->post('/calendars/{id}/events', 'CalendarController@createEvent');
 
