@@ -83,6 +83,7 @@ class CalendarController extends Controller {
                     ->get(); 
 
         return response()->json($events);
+        //return 0;
     }
 
     public function updateEvent(Request $request, $calendarId, $eventId)

@@ -62,7 +62,7 @@ $app->post('/calendar/{id}/event', 'CalendarController@createEvent');
 $app->get('/calendar/{calendar}/event/{event}', 'CalendarController@getEvent');
 
 //получить события календаря
-$app->get('/calendar/{calendar}/event/list', 'CalendarController@getCalendarEvents');
+$app->get('/calendar/{calendar}/events', 'CalendarController@getCalendarEvents');
 
 //обновить событие календаря
 $app->put('/calendar/{calendar}/event/{event}', 'CalendarController@updateEvent');
