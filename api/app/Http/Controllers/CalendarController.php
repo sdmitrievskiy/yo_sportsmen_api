@@ -12,16 +12,20 @@ class CalendarController extends Controller {
         $userId    = $request->input('user_id'); 
         if (!$googleApi) $googleApi = 1;
 
-        $calendar = DB::table('calendars')->where('googleApi', $googleApi)->where('user_id', $userId)->first();
+        $calendar = DB::table('calendars')->where('user_id', $userId)->first();
 
-        //если календарь есть, отправляем о нем инфу
         //если нету, создаем новый
+        //если календарь есть обновляем googleApi в нем
         if (!$calendar) {
             $calendarId = DB::table('calendars')->insertGetId(
                 ['user_id' => $userId, 'date_created' => date_create()->format('Y-m-d H:i:s'),'googleApi' => $googleApi]
             );
             $calendar = DB::table('calendars')->where('calendar_id', $calendarId)->first();
             
+        } else {
+            DB::table('calendars')->where('user_id', $userId)
+                                          ->update(['googleApi'       => $data['googleApi']]);
+            $calendar = DB::table('calendars')->where('user_id', $userId)->first();
         }
 
         return response()->json($calendar);
