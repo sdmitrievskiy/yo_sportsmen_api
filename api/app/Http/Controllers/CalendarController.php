@@ -71,6 +71,7 @@ class CalendarController extends Controller {
     {
         $event = DB::table('calendars_events')
                     ->where('event_id', $eventId)
+                    ->where('calendar_id', $calendarId)
                     ->join('sport_types', 'calendars_events.sport_type_id', '=', 'sport_types.sport_type_id')
                     ->select('calendars_events.*', 'sport_types.sport_type_name')
                     ->first(); 
@@ -96,6 +97,7 @@ class CalendarController extends Controller {
         //обновляем calendar_id
         if ( isset($data['calendar_id']) ) {
             DB::table('calendars_events')->where('event_id', $eventId)
+                              ->where('calendar_id', $calendarId)
                               ->update(['calendar_id' => $data['calendar_id'],
                                          'last_update' => date_create()->format('Y-m-d H:i:s') 
                                 ]);
@@ -104,6 +106,7 @@ class CalendarController extends Controller {
         //обновляем google_api_id
         if ( isset($data['google_api_id']) ) {
             DB::table('calendars_events')->where('event_id', $eventId)
+                              ->where('calendar_id', $calendarId)
                               ->update(['google_api_id' => $data['google_api_id'],
                                          'last_update' => date_create()->format('Y-m-d H:i:s') 
                                 ]);
@@ -112,6 +115,7 @@ class CalendarController extends Controller {
         //обновляем sport_type_id
         if ( isset($data['sport_type_id']) ) {
             DB::table('calendars_events')->where('event_id', $eventId)
+                              ->where('calendar_id', $calendarId)
                               ->update(['sport_type_id' => $data['sport_type_id'],
                                          'last_update' => date_create()->format('Y-m-d H:i:s') 
                                 ]);
@@ -120,6 +124,7 @@ class CalendarController extends Controller {
         //обновляем event_type
         if ( isset($data['event_type']) ) {
             DB::table('calendars_events')->where('event_id', $eventId)
+                              ->where('calendar_id', $calendarId)
                               ->update(['event_type' => $data['event_type'],
                                          'last_update' => date_create()->format('Y-m-d H:i:s') 
                                 ]);

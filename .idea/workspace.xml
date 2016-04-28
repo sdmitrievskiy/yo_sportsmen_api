@@ -22,7 +22,7 @@
     <favorites_list name="che_sportsmen" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.30841926">
+    <splitter split-orientation="horizontal" split-proportion="0.3298969">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
@@ -52,8 +52,8 @@
           <file leaf-file-name="CalendarController.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/api/app/Http/Controllers/CalendarController.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+                <state relative-caret-position="732">
+                  <caret line="126" column="30" selection-start-line="126" selection-start-column="30" selection-end-line="126" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
@@ -365,12 +365,12 @@
       <option name="presentableId" value="Default" />
       <updated>1461790040150</updated>
       <workItem from="1461790041377" duration="5138000" />
-      <workItem from="1461795954318" duration="1787000" />
+      <workItem from="1461795954318" duration="2429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6925000" />
+    <option name="totallyTimeSpent" value="7567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -445,8 +445,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/app/Http/Controllers/CalendarController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        <state relative-caret-position="732">
+          <caret line="126" column="30" selection-start-line="126" selection-start-column="30" selection-end-line="126" selection-end-column="30" />
           <folding />
         </state>
       </provider>
