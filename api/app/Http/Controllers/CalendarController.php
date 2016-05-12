@@ -133,4 +133,12 @@ class CalendarController extends Controller {
         //получаем пользователя и отправляем объект
         return $this->getEvent($calendarId, $eventId);
     }
+
+    public function getUserCalendar($userId) {
+        $calendar = DB::table('calendars')->where('user_id', $userId)->first();
+
+        if (!$calendar) return 0;
+
+        return response()->json($calendar);
+    }
 }
